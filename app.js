@@ -5,6 +5,8 @@ const captureButton = document.getElementById('capture-button');
 const pokeImg1 = document.getElementById('poke-img-1');
 const pokeImg2 = document.getElementById('poke-img-2');
 const pokeImg3 = document.getElementById('poke-img-3');
+const countSpan = document.getElementById('total-encounters');
+
 
 // create generatePokemon()
 const encounterPokemon = () => {
@@ -33,15 +35,19 @@ const encounterPokemon = () => {
     let poke3 = pokemons[randPoke3];
     pokeImg3.src = poke3.url_image;
 
-};
 
-let totalPlays = 0;
+};
+// encounterPokemon();
+let totalCaptures = 0;
+let totalEncounters = 0;
 captureButton.addEventListener('click', ()=>{ 
-    totalPlays ++;
-    if (totalPlays <= 10){
-        encounterPokemon();
-    }
-    else {
+    if (totalCaptures >= 10, totalEncounters >= 10){
         window.location.href = './results/index.html';
     }
+    else {
+        totalCaptures ++;
+        totalEncounters ++;
+    }
+    encounterPokemon();
+    countSpan.textContent = totalEncounters;
 });
