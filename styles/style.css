@@ -1,0 +1,21 @@
+#main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-options img {
+    width: 100px;
+    height: 100px;
+}
+
+input[type=radio]{
+    display: none;
+}
+
+input[type=radio]:checked + img {
+    border: 4px solid yellow;
+}
+
+input[type=radio] + img {
+    border: 4px transparent;
+}
