@@ -2,6 +2,18 @@
 
 ## Making a plan
 
+# Goal
+* Present user with 3 random different pokemon
+* user will select which pokemon they want to capture
+* regenerate 3 more pokemon
+* after user has encountered 10 trios of pokemon, take them to results page.
+
+# STATE
+** (remember, state is data that we are representing that changes overtime as the user interacts)
+* 1. Total # plays
+* 2. Num times captured
+* 3. Num times encountered
+
 # Plan
 * home page (root directory)
     * index.html
@@ -14,8 +26,8 @@
 
 ## HTML Elements
 * make home page with
-    * two images as radio buttons
-    * button with an id
+    * three images as radio buttons of pokemon - click to capture
+    * button with an id-
 * make empty results page
 
 ## Local Storage Functions
@@ -23,27 +35,28 @@
 const results = [
     { id: id, shown: number, picked: number },
 ]
-* get Results -- return the results array or empty array
-* showItem -- increment the shown key for an item
-* pickItem -- increment the picked key for an item
+* getPokedex -- return the results array or empty array
+* encounterdPokemon -- increment the encountered key for an item
+* capturedPokemon -- increment the captured key for an item
 ```
 
-## app.js logic
-* make function called generateItem()
-    * generate 2 random items
-    * call showItem for each
-    * render the item on the page
+## app.js:
+* make function called generatePokemon()
+    * generate 3 random pokemon using math.floor(math.random() * pokemons.length)
+    * call encounterPokemon for each -> update what is shown on the page. Use a while loop to run until you reach 10 encounters
+    * render the pokemon onto the page by setting random number to a pokemon, and rendering it with an image.
 
 ### ON PAGE LOAD
 * set totalPlays to 0
-* call generateItem
-### ON BUTTON CLICK
-* increment totalPlays
-* call pickItem with chosen item
+* call generatePokemon -> render items on page
+
+### ON BUTTON CLICK (of radio button)
+* increment totalPlays (<= 10)
+* call capturePokemon with chosen item
 * if totalPlays >= 10
     * redirect to results
 * else
-    * call generateItem
+    * call generatePokemon
 
 
 (bolded steps are mandatory, unbolded are for more advanced projects)
