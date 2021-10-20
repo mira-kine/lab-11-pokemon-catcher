@@ -2,6 +2,50 @@
 
 ## Making a plan
 
+# Plan
+* home page (root directory)
+    * index.html
+    * app.js
+* results page (/results directory)
+    * index.html
+    * results.js
+* storage-utils.js -- hold our localstorage functions
+* item.js -- holds the data
+
+## HTML Elements
+* make home page with
+    * two images as radio buttons
+    * button with an id
+* make empty results page
+
+## Local Storage Functions
+```javascript
+const results = [
+    { id: id, shown: number, picked: number },
+]
+* get Results -- return the results array or empty array
+* showItem -- increment the shown key for an item
+* pickItem -- increment the picked key for an item
+```
+
+## app.js logic
+* make function called generateItem()
+    * generate 2 random items
+    * call showItem for each
+    * render the item on the page
+
+### ON PAGE LOAD
+* set totalPlays to 0
+* call generateItem
+### ON BUTTON CLICK
+* increment totalPlays
+* call pickItem with chosen item
+* if totalPlays >= 10
+    * redirect to results
+* else
+    * call generateItem
+
+
 (bolded steps are mandatory, unbolded are for more advanced projects)
 
 1) **Make a drawing of your app. Simple "wireframes"**
