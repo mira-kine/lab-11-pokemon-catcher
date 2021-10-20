@@ -1,7 +1,7 @@
 // import functions and grab DOM elements
 import pokemons from './pokemon.js';
 // initialize global state
-const button = document.getElementById('capture-button');
+const captureButton = document.getElementById('capture-button');
 const pokeImg1 = document.getElementById('poke-img-1');
 const pokeImg2 = document.getElementById('poke-img-2');
 const pokeImg3 = document.getElementById('poke-img-3');
@@ -18,6 +18,7 @@ const encounterPokemon = () => {
         randPoke1 === randPoke2 || randPoke2 === randPoke3 ||
       randPoke1 === randPoke3
     ) {
+      // continue to regenerate random numbers to generate randPoke to encounter 
         randPoke1 = Math.floor(Math.random() * pokemons.length);
         randPoke2 = Math.floor(Math.random() * pokemons.length);
         randPoke3 = Math.floor(Math.random() * pokemons.length); 
@@ -34,8 +35,13 @@ const encounterPokemon = () => {
 
 };
 
-encounterPokemon();
-
-button.addEventListener('click', ()=>{
-    encounterPokemon();
+let totalPlays = 0;
+captureButton.addEventListener('click', ()=>{ 
+    totalPlays ++;
+    if (totalPlays <= 10){
+        encounterPokemon();
+    }
+    else {
+        window.location.href = './results/index.html';
+    }
 });
