@@ -22,15 +22,15 @@
     * index.html
     * results.js
 * storage-utils.js -- hold our localstorage functions
-* item.js -- holds the data
+* pokemon.js -- holds the data (download from lab repo)
 
 ## HTML Elements
 * make home page with
     * three images as radio buttons of pokemon - click to capture
-    * button with an id-
+    * button with an id - capture button
 * make empty results page
 
-## Local Storage Functions
+## Local Storage Functions - Pokemon Caught (will show up on results page)
 ```javascript
 const results = [
     { id: id, shown: number, picked: number },
@@ -41,22 +41,22 @@ const results = [
 ```
 
 ## app.js:
-* make function called generatePokemon()
-    * generate 3 random pokemon using math.floor(math.random() * pokemons.length)
+* make function called encounterPokemon()
+    * generate 3 random pokemon using math.floor(math.random() * pokemon.length)
     * call encounterPokemon for each -> update what is shown on the page. Use a while loop to run until you reach 10 encounters
     * render the pokemon onto the page by setting random number to a pokemon, and rendering it with an image.
 
 ### ON PAGE LOAD
 * set totalPlays to 0
-* call generatePokemon -> render items on page
+* call encounterPokemon -> render items on page
 
 ### ON BUTTON CLICK (of radio button)
 * increment totalPlays (<= 10)
-* call capturePokemon with chosen item
+* call capturePokemon with chosen item -> capture using capture button
 * if totalPlays >= 10
     * redirect to results
 * else
-    * call generatePokemon
+    * call encounterPokemon
 
 
 (bolded steps are mandatory, unbolded are for more advanced projects)

@@ -16,23 +16,24 @@
 
 <body>
     <section id="main container">
-        <div class="user-options" id="bulbasaur">
-            <label>
-                <input type="radio" name="pokemon" id="bulbasaur" value="bulbasaur">
-                <img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png">
+        <div class="user-options">
+            <label class="poke-choice">
+                <input type="radio" name="pokemon" id="pokemon-1">
+                <img id="poke-img-1"src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png">
+            </label>
+
+            <label class="poke-choice">
+                <input type="radio" name="pokemon" id="pokemon-2">
+                <img id="poke-img-2" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png">
+            </label>
+
+            <label class="poke-choice">
+                <input type="radio" name="pokemon" id="pokemon-3">
+                <img id="poke-img-3" src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png">
             </label>
         </div>
-        <div class="user-options" id="squirtle">
-            <label>
-                <input type="radio" name="pokemon" id="squirtle" value="squirtle">
-                <img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png">
-            </label>
-        </div>
-        <div class="user-options" id="charmander">
-            <label>
-                <input type="radio" name="pokemon" id="charmander" value="charmander">
-                <img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png">
-            </label>
+        <div id="capture-button-div">
+            <button id="capture-button">Capture</button>
         </div>
     </section>
     <script type="module" src="./app.js"></script>
