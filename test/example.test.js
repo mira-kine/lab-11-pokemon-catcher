@@ -1,7 +1,7 @@
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
 import pokemons from '../pokemon.js';
-import { findById, getPokedex, setPokedex } from '../storage-utils.js';
+import { findById, getPokedex, encounterPokemon, caughtPokemon } from '../storage-utils.js';
 
 const test = QUnit.test;
 
@@ -52,18 +52,35 @@ test('getPokedex function will return correct captured pokemon if it exists', (e
     expect.deepEqual(pokedex, testPokedex);
 });
 
-test('setPokedex will increase captured pokemon by one', (expect) => {
+test('encounterPokemon will increase encountered pokemon by one', (expect) => {
+    localStorage.removeItem('POKEDEX');
+    const testPokedex = [
+        { 'id':1, 'pokemon':'bulbasaur', encountered: 1, caught: 0 },
+        { 'id':2, 'pokemon':'ivysaur', encountered: 0, caught: 0 }
+    ];
+    localStorage.setItem('POKEDEX', JSON.stringify(testPokedex));
+    encounterPokemon(1);
+    const pokedex = getPokedex();
+    const expected = [
+        { 'id':1, 'pokemon':'bulbasaur', encountered: 2, caught: 0 },
+        { 'id':2, 'pokemon':'ivysaur', encountered: 0, caught: 0 }
+    ];
+    expect.deepEqual(pokedex, expected);
+});
+
+
+test('caughtPokemon will increase captured pokemon by one', (expect) => {
     localStorage.removeItem('POKEDEX');
     const testPokedex = [
         { 'id':1, 'pokemon':'bulbasaur', encountered: 0, caught: 1 },
-        { 'id':2, 'pokemon':'ivysaur', encountered: 0, caught: 1 }
+        { 'id':2, 'pokemon':'ivysaur', encountered: 0, caught: 0 }
     ];
     localStorage.setItem('POKEDEX', JSON.stringify(testPokedex));
-    setPokedex(1);
+    caughtPokemon(1);
     const pokedex = getPokedex();
     const expected = [
         { 'id':1, 'pokemon':'bulbasaur', encountered: 0, caught: 2 },
-        { 'id':2, 'pokemon':'ivysaur', encountered: 0, caught: 1 }
+        { 'id':2, 'pokemon':'ivysaur', encountered: 0, caught: 0 }
     ];
     expect.deepEqual(pokedex, expected);
 });

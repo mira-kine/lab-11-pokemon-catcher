@@ -70,7 +70,17 @@ const results = [
         return pokedex;
     }
 ```
+* encounter fruit
+```javascript
+    // getPokedex from LS
+    // if id exists in localStorage
+        // increment encounter attribute
+    // else
+    //  create a new object and push it onto the encounter array
+    //  { encounter: 0 }
+    // set the new encounter results to local Storage
 
+```
 
 (bolded steps are mandatory, unbolded are for more advanced projects)
 
