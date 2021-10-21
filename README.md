@@ -70,7 +70,15 @@ const results = [
         return pokedex;
     }
 ```
-* encounter fruit
+* caughtPokemon
+```javascript
+    // get Pokedex from LS
+    // findById in pokedex (localstorage)
+        // increment caught counter if exists
+    // set new data to localstorage
+```    
+
+* encounterPokemon
 ```javascript
     // getPokedex from LS
     // if id exists in localStorage
@@ -81,6 +89,15 @@ const results = [
     // set the new encounter results to local Storage
 
 ```
+* clearPokedex
+
+### results.js
+* get data from local storage, import it
+* import pokemon data
+* create loop:
+    * for each pokemon of pokemons use findById to find what data you need for results
+    * create table elements you want for your results: div, img, header, numbered resultsSpan (which is ${pokemon.encountered} and ${pokemon.caught})
+        * append necessary elements into divs and main (make sure to give main container an id ie: "main" and grab DOM at the top)
 
 (bolded steps are mandatory, unbolded are for more advanced projects)
 

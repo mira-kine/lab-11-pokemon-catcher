@@ -1,16 +1,19 @@
 // import functions and grab DOM elements
 import pokemons from './pokemon.js';
-import { setPokedex } from './storage-utils.js';
+import { encounterPokemon, caughtPokemon } from './storage-utils.js';
 // initialize global state
 const captureButton = document.getElementById('capture-button');
 const pokeImg1 = document.getElementById('poke-img-1');
 const pokeImg2 = document.getElementById('poke-img-2');
 const pokeImg3 = document.getElementById('poke-img-3');
+// const pokeRadio1 = document.getElementById('pokemon-1');
+// const pokeRadio2 = document.getElementById('pokemon-2');
+// const pokeRadio3 = document.getElementById('pokemon-3');
 const countSpan = document.getElementById('total-encounters');
 
 
 // create generatePokemon()
-const encounterPokemon = () => {
+const generatePokemon = () => {
   // generate 3 random pokemon using math.floor(math.random() * pokemon.length)
     // generate 3 random from pokemon array on pokemon.js, set it equal to mutable variable
     let randPoke1 = Math.floor(Math.random() * pokemons.length);
@@ -28,40 +31,38 @@ const encounterPokemon = () => {
     }
 
     let poke1 = pokemons[randPoke1];
+    encounterPokemon(poke1.id);
+    caughtPokemon(poke1.id);
     pokeImg1.src = poke1.url_image;
 
     let poke2 = pokemons[randPoke2];
+    encounterPokemon(poke2.id);
+    caughtPokemon(poke2.id);
     pokeImg2.src = poke2.url_image;
 
     let poke3 = pokemons[randPoke3];
+    encounterPokemon(poke3.id);
+    caughtPokemon(poke3.id);
     pokeImg3.src = poke3.url_image;
-
-
 };
-// encounterPokemon();
-let totalCaptures = 0;
-let totalEncounters = 0;
 
-const capturePokemon = () => {
-    if (totalCaptures >= 10, totalEncounters >= 10){
+let totalCaptured = 0;
+let totalEncounters = 0;
+encounterPokemon();
+
+captureButton.addEventListener('click', ()=>{ 
+    totalEncounters++;
+    const chosenPokemon = document.querySelector('input[type=radio]:checked');
+    const chosenId = chosenPokemon.value;
+    encounterPokemon(chosenId);
+    caughtPokemon(chosenId);
+    if (totalCaptured >= 10, totalEncounters >= 10){
         window.location.href = './results/index.html';
     }
     else {
-        totalCaptures ++;
-        totalEncounters ++;
+        totalCaptured++;
+        totalEncounters++;
+        generatePokemon();
     }
-};
-// capturePokemon();
-
-captureButton.addEventListener('click', ()=>{ 
-    setPokedex();
-    capturePokemon();
-    encounterPokemon();
     countSpan.textContent = totalEncounters;
 });
-
-for (let pokemon of pokemons) {
-    captureButton.addEventListener('click', ()=> {
-        setPokedex(pokemon.id);
-    });
-}
