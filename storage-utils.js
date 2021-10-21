@@ -25,9 +25,9 @@ export function encounterPokemon(id){
     localStorage.setItem('POKEDEX', stringPokedex);
 }
 
-export function caughtPokemon(id){
-    let pokedex = getPokedex();
-    let pokemon = findById(pokedex, id);
-    pokemon.caught++;
-    localStorage.setItem('POKEDEX', pokedex);
-}
+// export function caughtPokemon(id){
+//     let pokedex = getPokedex();
+//     let pokemon = findById(pokedex, id);
+//     pokemon.caught++;
+//     localStorage.setItem('POKEDEX', pokedex);
+// }
