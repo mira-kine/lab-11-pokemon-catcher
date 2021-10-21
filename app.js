@@ -1,5 +1,6 @@
 // import functions and grab DOM elements
 import pokemons from './pokemon.js';
+import { setPokedex } from './storage-utils.js';
 // initialize global state
 const captureButton = document.getElementById('capture-button');
 const pokeImg1 = document.getElementById('poke-img-1');
@@ -40,7 +41,8 @@ const encounterPokemon = () => {
 // encounterPokemon();
 let totalCaptures = 0;
 let totalEncounters = 0;
-captureButton.addEventListener('click', ()=>{ 
+
+const capturePokemon = () => {
     if (totalCaptures >= 10, totalEncounters >= 10){
         window.location.href = './results/index.html';
     }
@@ -48,6 +50,18 @@ captureButton.addEventListener('click', ()=>{
         totalCaptures ++;
         totalEncounters ++;
     }
+};
+// capturePokemon();
+
+captureButton.addEventListener('click', ()=>{ 
+    setPokedex();
+    capturePokemon();
     encounterPokemon();
     countSpan.textContent = totalEncounters;
 });
+
+for (let pokemon of pokemons) {
+    captureButton.addEventListener('click', ()=> {
+        setPokedex(pokemon.id);
+    });
+}

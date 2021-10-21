@@ -58,6 +58,19 @@ const results = [
 * else
     * call encounterPokemon
 
+## storage-utils.js
+* findById function to find the correct pokemon
+* setPokedex (use findById)
+    * 
+* getPokedex
+``` javascript
+    export function getPokedex(){
+        const pokeString = localStorage.getItem('POKEDEX') || '[]';
+        const pokedex = JSON.parse(pokeString);
+        return pokedex;
+    }
+```
+
 
 (bolded steps are mandatory, unbolded are for more advanced projects)
 
