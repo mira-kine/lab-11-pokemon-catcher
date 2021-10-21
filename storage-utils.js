@@ -13,7 +13,7 @@ export function getPokedex(){
 }
 
 export function encounterPokemon(id){
-    const pokedex = getPokedex();
+    let pokedex = getPokedex();
     let shownPokemon = findById(id, pokedex);
     if (shownPokemon) {
         shownPokemon.encountered++;
@@ -27,7 +27,7 @@ export function encounterPokemon(id){
 
 export function caughtPokemon(id){
     let pokedex = getPokedex();
-    let caughtPokemon = findById(id, pokedex);
-    caughtPokemon.caught++;
+    let caughtPoke = findById(id, pokedex);
+    caughtPoke.caught++;
     localStorage.setItem('POKEDEX', JSON.stringify(pokedex));
 }

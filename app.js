@@ -32,19 +32,20 @@ const generatePokemon = () => {
 
     let poke1 = pokemons[randPoke1];
     encounterPokemon(poke1.id);
-    pokeRadio1.value = poke1.id;
     pokeImg1.src = poke1.url_image;
+    pokeRadio1.value = poke1.id;
 
     let poke2 = pokemons[randPoke2];
     encounterPokemon(poke2.id);
-    pokeRadio2.value = poke2.id;
     pokeImg2.src = poke2.url_image;
+    pokeRadio2.value = poke2.id;
 
     let poke3 = pokemons[randPoke3];
     encounterPokemon(poke3.id);
-    pokeRadio3.value = poke3.id;
     pokeImg3.src = poke3.url_image;
+    pokeRadio3.value = poke3.id;
 };
+generatePokemon();
 
 let totalEncounters = 0;
 encounterPokemon();
@@ -53,9 +54,10 @@ captureButton.addEventListener('click', ()=>{
     const chosenPokemon = document.querySelector('input[type=radio]:checked');
     
     if (chosenPokemon){
-        const chosenId = chosenPokemon.value;
-        totalEncounters++;
+        const chosenId = Number(chosenPokemon.value);
         caughtPokemon(chosenId);
+
+        totalEncounters++;
         if (totalEncounters >= 10){
             window.location.href = './results/index.html';
         }
