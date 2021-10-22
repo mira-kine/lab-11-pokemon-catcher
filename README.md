@@ -70,7 +70,15 @@ const results = [
         return pokedex;
     }
 ```
-* encounter fruit
+* caughtPokemon
+```javascript
+    // get Pokedex from LS
+    // findById in pokedex (localstorage)
+        // increment caught counter if exists
+    // set new data to localstorage
+```    
+
+* encounterPokemon
 ```javascript
     // getPokedex from LS
     // if id exists in localStorage
@@ -81,6 +89,37 @@ const results = [
     // set the new encounter results to local Storage
 
 ```
+* clearPokedex
+
+### results.js
+* get data from local storage, import it
+* import pokemon data
+* create loop:
+    * for each pokemon of pokemons use findById to find what data you need for results
+    * create table elements you want for your results: div, img, header, numbered resultsSpan (which is ${pokemon.encountered} and ${pokemon.caught})
+        * append necessary elements into divs and main (make sure to give main container an id ie: "main" and grab DOM at the top)
+* create chart (practice using data munging    )
+    * const names = pokedex.map((item) => {
+        const pokemon = findById(pokemons, item.id);
+        return pokemon.name;
+    })
+    * const caught = pokedex.map(item=>item.caught)
+    * var ctx = document.getElementById('pokedexChart')
+    * var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: names,
+            datasets: [{
+                label: 'number times caught',
+                data: caught,
+            }] 
+        }
+    })
+
+### chart.js
+* go to chart.js starting website (https://www.chartjs.org/docs/latest/)
+* grab script tag (aka copy url) from chart.js CDN files
+
 
 (bolded steps are mandatory, unbolded are for more advanced projects)
 

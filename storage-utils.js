@@ -13,12 +13,12 @@ export function getPokedex(){
 }
 
 export function encounterPokemon(id){
-    const pokedex = getPokedex();
-    let pokemon = findById(id, pokedex);
-    if (pokemon) {
-        pokemon.encountered++;
+    let pokedex = getPokedex();
+    let shownPokemon = findById(id, pokedex);
+    if (shownPokemon) {
+        shownPokemon.encountered++;
     } else {
-        const newPokemon = { id: id, encountered: 0 };
+        const newPokemon = { id: id, encountered: 1, caught: 0 };
         pokedex.push(newPokemon);
     }
     const stringPokedex = JSON.stringify(pokedex);
@@ -27,7 +27,7 @@ export function encounterPokemon(id){
 
 export function caughtPokemon(id){
     let pokedex = getPokedex();
-    let pokemon = findById(pokedex, id);
-    pokemon.caught++;
-    localStorage.setItem('POKEDEX', pokedex);
+    let caughtPoke = findById(id, pokedex);
+    caughtPoke.caught++;
+    localStorage.setItem('POKEDEX', JSON.stringify(pokedex));
 }

@@ -68,6 +68,17 @@ test('encounterPokemon will increase encountered pokemon by one', (expect) => {
     expect.deepEqual(pokedex, expected);
 });
 
+test('encounterPokemon will add new pokemon if not in pokedex', (expect) => {
+    localStorage.removeItem('POKEDEX');
+    const testPokedex = [];
+    localStorage.setItem('POKEDEX', JSON.stringify(testPokedex));
+    encounterPokemon(1);
+    const pokedex = getPokedex();
+    const expected = [
+        { 'id':1, encountered: 1, caught: 0 }
+    ];
+    expect.deepEqual(pokedex, expected);
+});
 
 test('caughtPokemon will increase captured pokemon by one', (expect) => {
     localStorage.removeItem('POKEDEX');

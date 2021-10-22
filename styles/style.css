@@ -1,17 +1,26 @@
 body {
-    background-image: url(../assets/grass-background.png);
-    background-size: contain;
+    background-image: url(../assets/pixel-grass.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
 #main-container {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .user-options img {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
+    background-color: white;
 }
 
 input[type=radio]{
@@ -20,8 +29,19 @@ input[type=radio]{
 
 input[type=radio]:checked + img {
     border: 4px solid yellow;
+    padding: 50px;
+    border-radius: 50%;
 }
 
 input[type=radio] + img {
     border: 4px transparent;
+    padding: 50px;
+    border-radius: 50%;
+}
+
+#main-container > #pokemon-logo-div  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
 }
