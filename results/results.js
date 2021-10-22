@@ -54,6 +54,7 @@ const name = pokedex.map((item)=> {
     return caughtPokemon.pokemon;
 });
 
+const encountered = pokedex.map(item=>item.encountered);
 const caught = pokedex.map(item=>item.caught);
 
 let resultsChart = document.getElementById('results-chart').getContext('2d');
@@ -68,11 +69,27 @@ new Chart(resultsChart, {
             data: caught,
             backgroundColor: [
                 'rgba(234, 53, 70)',
+                'rgba(239, 202, 8)',
+                'rgba(234, 53, 70)',
                 'rgba(239, 202, 8)'
             ],
             borderColor: [
                 'rgba(234, 53, 70)',
+                'rgba(239, 202, 8)',
+                'rgba(234, 53, 70)',
                 'rgba(239, 202, 8)'
+            ],
+            borderWidth: 1
+        }, {
+            label: '# Encountered',
+            data: encountered,
+            backgroundColor : [
+                'rgba(37, 110, 255)',
+                'rgba(188, 211, 156)',
+            ],
+            borderColor: [
+                'rgba(37, 110, 255)',
+                'rgba(188, 211, 156)',
             ],
             borderWidth: 1
         }]
