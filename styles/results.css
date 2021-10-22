@@ -1,0 +1,40 @@
+#main-page {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* width: 230px;
+    height: 230px; */
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    flex: wrap;
+    border: 1px solid salmon;
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+    margin: 20 20 20 20;
+    align-items: center;
+    width: 190px;
+    height: 190px;
+}
+
+img {
+    width: 75px;
+    height: 75px;
+}
+
+.results-content {
+    display: flex;
+    flex-direction: column;
+}
+
+

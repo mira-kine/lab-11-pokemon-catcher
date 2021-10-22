@@ -48,7 +48,6 @@ const generatePokemon = () => {
 generatePokemon();
 
 let totalEncounters = 0;
-encounterPokemon();
 
 captureButton.addEventListener('click', ()=>{ 
     const chosenPokemon = document.querySelector('input[type=radio]:checked');
