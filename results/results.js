@@ -57,10 +57,22 @@ const name = pokedex.map((item)=> {
 const encountered = pokedex.map(item=>item.encountered);
 const caught = pokedex.map(item=>item.caught);
 
-let resultsChart = document.getElementById('results-chart').getContext('2d');
+// const fire = pokedex.map((pokedex)=>{
+//     let pokeTypes = pokedex.filter(fireType=>fireType.type_1 === 'fire');
+//     return pokeTypes;
+// });
 
+const fire = pokedex.filter(item=>item.type_1 === 'fire');
+
+const water = pokedex.filter(item=>item.type_1 === 'water');
+const grass = pokedex.filter(item=>item.type_1 === 'grass');
+const bug = pokedex.filter(item=>item.type_1 === 'bug');
+const normal = pokedex.filter(item=>item.type_1 === 'normal');
+
+let resultsChart1 = document.getElementById('results-chart1').getContext('2d');
+let resultsChart2 = document.getElementById('results-chart2').getContext('2d');
 // eslint-disable-next-line no-undef
-new Chart(resultsChart, {
+new Chart(resultsChart1, {
     type: 'bar',
     data: {
         labels: name,
@@ -69,27 +81,19 @@ new Chart(resultsChart, {
             data: caught,
             backgroundColor: [
                 'rgba(234, 53, 70)',
-                'rgba(239, 202, 8)',
-                'rgba(234, 53, 70)',
-                'rgba(239, 202, 8)'
             ],
             borderColor: [
-                'rgba(234, 53, 70)',
-                'rgba(239, 202, 8)',
-                'rgba(234, 53, 70)',
-                'rgba(239, 202, 8)'
+                'rgba(234, 53, 70)'
             ],
             borderWidth: 1
         }, {
             label: '# Encountered',
             data: encountered,
             backgroundColor : [
-                'rgba(37, 110, 255)',
-                'rgba(188, 211, 156)',
+                'rgba(239, 202, 8)'
             ],
             borderColor: [
-                'rgba(37, 110, 255)',
-                'rgba(188, 211, 156)',
+                'rgba(239, 202, 8)'
             ],
             borderWidth: 1
         }]
@@ -102,6 +106,40 @@ new Chart(resultsChart, {
         }
     }
 });
+// eslint-disable-next-line no-undef
+new Chart(resultsChart2, {
+    type: 'doughnut',
+    data: {
+        labels: fire, water, grass, bug, normal,
+        datasets: [{
+            label: '# Types',
+            data: caught,
+            backgroundColor: [
+                'rgba(238, 129, 48)',
+                'rgba(99, 144, 240)',
+                'rgba(122, 199, 76)',
+                'rgba(166, 185, 26)',
+                'rgba(168, 167, 122)'
 
+            ],
+            borderColor: [
+                'rgba(238, 129, 48)',
+                'rgba(99, 144, 240)',
+                'rgba(122, 199, 76)',
+                'rgba(166, 185, 26)',
+                'rgba(168, 167, 122)'
+            ],
+            hoverOffset: 4,
+            borderWidth: 1
+        }],
+    },
+    options:{
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 
 
