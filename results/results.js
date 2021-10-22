@@ -3,13 +3,19 @@ import { getPokedex, findById } from '../storage-utils.js';
 //grab DOM elements
 const newJourney = document.getElementById('new-journey');
 const mainPage = document.getElementById('main-page');
-// create loop
+const catchMore = document.getElementById('catch-page-button');
+
+//create buttons with event listeners
+catchMore.addEventListener('click', ()=>{
+    window.location.href = '../';
+});
 
 newJourney.addEventListener('click', ()=>{
     localStorage.removeItem('POKEDEX');
     window.location.href = '../';
 });
 
+// create loop
 const pokedex = getPokedex();
 for (let item of pokedex){
     const caughtPokemon = findById(item.id, pokemons);

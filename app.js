@@ -3,6 +3,8 @@ import pokemons from './pokemon.js';
 import { encounterPokemon, caughtPokemon } from './storage-utils.js';
 // initialize global state
 const captureButton = document.getElementById('capture-button');
+const pokedexButton = document.getElementById('pokedex-button');
+// grab elements
 const pokeImg1 = document.getElementById('poke-img-1');
 const pokeImg2 = document.getElementById('poke-img-2');
 const pokeImg3 = document.getElementById('poke-img-3');
@@ -10,7 +12,6 @@ const pokeRadio1 = document.getElementById('pokemon-1');
 const pokeRadio2 = document.getElementById('pokemon-2');
 const pokeRadio3 = document.getElementById('pokemon-3');
 const countSpan = document.getElementById('total-encounters');
-
 
 // create generatePokemon()
 const generatePokemon = () => {
@@ -65,4 +66,8 @@ captureButton.addEventListener('click', ()=>{
         }
     }
     countSpan.textContent = totalEncounters;
+});
+
+pokedexButton.addEventListener('click', ()=>{
+    window.location.href = './results/index.html';
 });
