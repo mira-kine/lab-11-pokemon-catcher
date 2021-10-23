@@ -95,28 +95,29 @@ new Chart(resultsChart1, {
     }
 });
 
-const typeNames = [];
-const typeArray = [];
+// const typeNames = [];
+// const typeArray = [];
 
-for (let item of pokedex) {
-    const myPokemon = findById(item.id, pokemons);
-    typeNames.push(myPokemon.name);
-    typeArray.push(myPokemon.type_1);
-}
+// for (let item of pokedex) {
+//     const myPokemon = findById(item.id, pokemons);
+//     typeNames.push(myPokemon.name);
+//     typeArray.push(myPokemon.type_1);
+// }
 
-// const fire = pokedex.filter(item=>item.type_1 === 'fire');
-// const water = pokedex.filter(item=>item.type_1 === 'water');
-// const grass = pokedex.filter(item=>item.type_1 === 'grass');
-// const bug = pokedex.filter(item=>item.type_1 === 'bug');
-// const normal = pokedex.filter(item=>item.type_1 === 'normal');
+const fire = pokedex.filter(item=>item.type_1 === 'fire');
+const water = pokedex.filter(item=>item.type_1 === 'water');
+const grass = pokedex.filter(item=>item.type_1 === 'grass');
+const bug = pokedex.filter(item=>item.type_1 === 'bug');
+const normal = pokedex.filter(item=>item.type_1 === 'normal');
 
 // eslint-disable-next-line no-undef
 new Chart(resultsChart2, {
     type: 'doughnut',
     data: {
-        labels: typeArray, typeNames,
+        labels: fire, water, grass, bug, normal,
         datasets: [{
             label: '# Types',
+            data: caught,
             backgroundColor: [
                 'rgba(238, 129, 48)',
                 'rgba(99, 144, 240)',
