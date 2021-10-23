@@ -1,3 +1,8 @@
+button {
+    width: 100px;
+    height: 50px;
+}
+
 body {
     background-image: url(../assets/pixel-grass.jpg);
     background-size: cover;

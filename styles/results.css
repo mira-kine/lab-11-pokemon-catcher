@@ -1,3 +1,8 @@
+button {
+    width: 100px;
+    height: 50px;
+}
+
 #main-page {
     display: flex;
     flex-wrap: wrap;
@@ -23,6 +28,7 @@
     align-items: center;
     width: 200px;
     height: 200px; 
+    color: white;
 }
 
 img {
@@ -36,5 +42,3 @@ img {
     color: #f7c548;
     font-size: 0.9rem;
 }
-
-/* 19-17 */
