@@ -57,18 +57,6 @@ const name = pokedex.map((item)=> {
 const encountered = pokedex.map(item=>item.encountered);
 const caught = pokedex.map(item=>item.caught);
 
-// const fire = pokedex.map((pokedex)=>{
-//     let pokeTypes = pokedex.filter(fireType=>fireType.type_1 === 'fire');
-//     return pokeTypes;
-// });
-
-const fire = pokedex.filter(item=>item.type_1 === 'fire');
-
-const water = pokedex.filter(item=>item.type_1 === 'water');
-const grass = pokedex.filter(item=>item.type_1 === 'grass');
-const bug = pokedex.filter(item=>item.type_1 === 'bug');
-const normal = pokedex.filter(item=>item.type_1 === 'normal');
-
 let resultsChart1 = document.getElementById('results-chart1').getContext('2d');
 let resultsChart2 = document.getElementById('results-chart2').getContext('2d');
 // eslint-disable-next-line no-undef
@@ -106,14 +94,30 @@ new Chart(resultsChart1, {
         }
     }
 });
+
+const typeNames = [];
+const typeArray = [];
+
+for (let item of pokedex) {
+    const myPokemon = findById(item.id, pokemons);
+    typeNames.push(myPokemon.name);
+    typeArray.push(myPokemon.type_1);
+}
+
+// const fire = pokedex.filter(item=>item.type_1 === 'fire');
+// const water = pokedex.filter(item=>item.type_1 === 'water');
+// const grass = pokedex.filter(item=>item.type_1 === 'grass');
+// const bug = pokedex.filter(item=>item.type_1 === 'bug');
+// const normal = pokedex.filter(item=>item.type_1 === 'normal');
+
 // eslint-disable-next-line no-undef
 new Chart(resultsChart2, {
     type: 'doughnut',
     data: {
-        labels: fire, water, grass, bug, normal,
+        labels: typeArray,
         datasets: [{
             label: '# Types',
-            data: caught,
+            data: [1, 2, 3, 4, 5],
             backgroundColor: [
                 'rgba(238, 129, 48)',
                 'rgba(99, 144, 240)',
