@@ -114,10 +114,9 @@ for (let item of pokedex) {
 new Chart(resultsChart2, {
     type: 'doughnut',
     data: {
-        labels: typeArray,
+        labels: typeArray, typeNames,
         datasets: [{
             label: '# Types',
-            data: [1, 2, 3, 4, 5],
             backgroundColor: [
                 'rgba(238, 129, 48)',
                 'rgba(99, 144, 240)',
